@@ -1,0 +1,281 @@
+@import "tailwindcss";
+
+/* =============================================
+   EVENTZ&A — Natural Harvest Design System
+   Light:  #f53003 / #fff2f2 / #fed5e0 / #f3bec7 / #fed173 / #f8b803 / #e15971
+   Dark:   #1d0002 / #f61500 / #ff750f
+============================================= */
+
+:root {
+  --c-primary: #f53003;
+  --c-bg: #fff2f2;
+  --c-surface: #fed5e0;
+  --c-surface2: #f3bec7;
+  --c-accent: #fed173;
+  --c-accent2: #f8b803;
+  --c-muted: #e15971;
+  --c-text: #1d0002;
+  --c-border: rgba(245, 48, 3, 0.15);
+  --c-shadow: rgba(245, 48, 3, 0.12);
+}
+
+.dark {
+  --c-primary: #f61500;
+  --c-bg: #1d0002;
+  --c-surface: #2d0004;
+  --c-surface2: #3e0005;
+  --c-accent: #ff750f;
+  --c-accent2: #f53003;
+  --c-muted: #ff9070;
+  --c-text: #fff2f2;
+  --c-border: rgba(255, 117, 15, 0.2);
+  --c-shadow: rgba(255, 117, 15, 0.15);
+}
+
+/* === GLOBAL RESET & BASE === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--c-bg);
+  color: var(--c-text);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+/* === REUSABLE COMPONENTS === */
+.card {
+  background: var(--c-surface);
+  border: 1.5px solid var(--c-border);
+  border-radius: 24px;
+  box-shadow: 0 4px 30px var(--c-shadow);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: 0 12px 50px var(--c-shadow);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--c-primary);
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  padding: 14px 32px;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 20px rgba(245, 48, 3, 0.35);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 30px rgba(245, 48, 3, 0.45);
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--c-primary);
+  border: 2px solid var(--c-primary);
+  border-radius: 100px;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-outline:hover {
+  background: var(--c-primary);
+  color: #fff;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  color: var(--c-muted);
+  border: none;
+  border-radius: 100px;
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-ghost:hover {
+  background: var(--c-surface2);
+  color: var(--c-primary);
+}
+
+.input-field {
+  width: 100%;
+  background: var(--c-bg);
+  border: 2px solid var(--c-border);
+  border-radius: 100px;
+  padding: 14px 22px 14px 56px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--c-text);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-field:focus {
+  border-color: var(--c-primary);
+  box-shadow: 0 0 0 4px rgba(245, 48, 3, 0.1);
+}
+
+.input-field::placeholder {
+  color: var(--c-muted);
+  opacity: 0.7;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.badge-primary {
+  background: rgba(245, 48, 3, 0.12);
+  color: var(--c-primary);
+  border: 1px solid rgba(245, 48, 3, 0.2);
+}
+
+.badge-accent {
+  background: rgba(254, 209, 115, 0.2);
+  color: #c07a00;
+  border: 1px solid rgba(254, 209, 115, 0.3);
+}
+
+.dark .badge-accent {
+  color: var(--c-accent);
+  background: rgba(255, 117, 15, 0.15);
+  border-color: rgba(255, 117, 15, 0.25);
+}
+
+.section-header {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--c-primary), var(--c-accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .gradient-text {
+  background: linear-gradient(135deg, var(--c-primary), var(--c-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--c-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--c-surface2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--c-muted);
+}
+
+/* Selection */
+::selection {
+  background: rgba(245, 48, 3, 0.2);
+}
+
+/* Animations */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Event details responsive grid */
+.event-grid {
+  grid-template-columns: minmax(0, 1fr) 380px;
+}
+
+@media (max-width: 1023px) {
+  .event-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Info pill icon background helper */
+.info-icon-primary {
+  background: rgba(245, 48, 3, 0.12);
+  color: var(--c-primary);
+}
+
+.info-icon-accent {
+  background: rgba(248, 184, 3, 0.12);
+  color: var(--c-accent2);
+}
+
+.info-icon-muted {
+  background: rgba(225, 89, 113, 0.12);
+  color: var(--c-muted);
+}
