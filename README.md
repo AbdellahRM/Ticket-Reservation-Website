@@ -6,7 +6,7 @@
 
 Plateforme complète de gestion et réservation d'événements développée en PHP 8+ avec architecture MVC.
 
-## 🚀 Installation locale (WAMP / XAMPP)
+## 🚀 Installation locale (WAMP / XAMPP):
 
 1. **Copier le projet** : Placez le dossier `Chakchabani` dans `C:\wamp64\www\` ou `C:\xampp\htdocs\`.
 2. **Base de données** :
